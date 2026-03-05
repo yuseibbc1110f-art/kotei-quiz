@@ -6,8 +6,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="固定資産税">
-<meta name="theme-color" content="#2d6a4f">
+<meta name="theme-color" content="#1a6fd8">
 <link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;900&display=swap" rel="stylesheet">
 <!-- Apple touch icon (inline base64) -->
 <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAE9UlEQVR4nO3dMWjcVRzA8eQUmobQJrYdBF3cOxV0UXF1aWe1SzO2q6JtOpWCFDGoICqdCkodFQQHt4LODoqinYqktB1qzyR3yV0Oh0IIlyqX+773fu/+9/2MB3d5fe+b3//uelxmT54/MyONqxW9AE02AxJiQEIMSIgBCTEgIQYkxICEGJAQAxJiQEIMSIgBCTEgIQYkxICEGJAQAxJiQEIMSIgBCTEgIQYk5OnoBfynTns9egl1OXxkIXoJT1BXQEbzP/ZuTj0xVRGQ3RzU7o6FlxQckOlAjzcwMKOwgEwnocCMYl6FWU8OIbtaegKZTlblR1HRCWQ9ZZTc53IBWU9JxXa7UEDWU16ZPS8RkPVEKbDz2QOynli59z9vQNZTg6ynkDEg66lHvrPw4xxCcgXk+KlNphPJEpD11CnHuXgJE5I+IMdPzZKfjhNISOKAHD/1S3tGTiAhBiQkZUBevyZFwpNyAgkxICEGJCRZQD4BmiypzssJJMSAhBiQEAMSYkBCqvh6l4N67cWX3j63HL2KxL6/devTm19Fr+LAnEBCDEiIAQkxICEGJGQiX4U90fLKpYftR9GrGMnxpaXrV65GryKN5gS03e/1+v3oVYxku9eLXkIyXsKEGJCQ5lzCEjq2uHjj/WtDN559952/2+2Q9dTMCSTEgIQYkBADEmJAQgxIiAEJMSAhBiSkse9Ev/7KqxfefCvhA3557QNy9/dWP/zlzz9SLaYeTiAhBiTEgIQYkJDGPon+9fbtz7++Od59F+bnz54+M3TjjW+/6XQ6Y69n7f79se9bs8YGdOfu2p27a+Pd99ji4v6AfvjpRz8PtJ+XMCEGJMSAhBiQEAMSYkBCDEiIAQlp7BuJ+32ycvmF554f++4H+jjHz7//dvnjj8b+WRPECSTEgIQYkBADEjJFT6KHdLe2zq1cTPJQL586deGNlJ+/niDTG9DMzMw/GxtJHqfT3UryOJPIS5gQAxJiQEIMSIgBCTEgIQYkxICEGJAQAxJiQEKm9//C5g4d+u6zL6JXMfGcQEIMSIgBCTEgIVP0JPri6mqrNVvmZ+3s7JT5QeGmKKCNzmb0EhrIS5gQAxJiQEIMSIgBCTEgIc15GQ//mo7G4wQSYkBCDEiIAQkxICHNeRW2vHLpYftR9CpGcnxp6fqVq9GrSKM5AW33e71+P3oVI9nu9aKXkIyXMCEGJGT25PnhP803nk57PcnjjGJ+bu6Zo0eHblx78GAwGBRbA/FUq/XsiRNDN653OoX/IuLhIwv8QSbyOdBmt7vZ7UavYnw7g8Ff9+5FryINL2FCDEiIAQkxICEGJMSAhBiQkGQBJXlXSsWkOi8nkBADEmJAQlIG5NOgSZHwpJxAQgxISOKAvIrVL+0ZOYGEpA/IIVSz5KfjBBKSJSCHUJ1ynEuuCWRDtcl0Il7ChGQMyCFUj3xnkXcC2VANsp5C9kuYDcXKvf8lngPZUJQCO1/oSbQNlVdmz8u9CrOhkortdtGX8TZURsl9Lv3lCo//bSW/ymOqlP8VjXkj0VGUQ8iuhn29i6MoocBfyODvBzIjKHyWV/EFU7u7YEkjCu9mVxUB7dq7L8Y0pJ5o9qoroL3q3C8N8eMcQgxIiAEJMSAhBiTEgIQYkBADEmJAQgxIiAEJMSAhBiTEgIQYkBADEmJAQgxIiAEJMSAhBiTEgIQYkBADEmJAQgxIiAEJMSAhBiTEgIQ=">
 <title>暗記アプリ - 固定資産税</title>
@@ -21,7 +23,7 @@
   --txt:#1a1a2e;--mid:#4a5270;--light:#8895b8;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;align-items:center;}
+body{font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;align-items:center;}
 .screen{display:none;width:100%;max-width:700px;padding:20px 16px;}
 .screen.active{display:flex;flex-direction:column;}
 
@@ -43,7 +45,7 @@ body{font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;backgroun
 .mode-count{font-family:'DM Serif Display','Georgia',serif;font-size:22px;color:var(--accent);line-height:1;}
 .mode-label{font-size:12px;color:var(--mid);margin-top:3px;font-weight:700;}
 .mode-all{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:11px 14px;}
-.btn-start{width:100%;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:12px;font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;font-size:16px;font-weight:700;cursor:pointer;transition:all .18s;margin-top:6px;letter-spacing:1px;}
+.btn-start{width:100%;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:12px;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:16px;font-weight:700;cursor:pointer;transition:all .18s;margin-top:6px;letter-spacing:1px;}
 .btn-start:hover{background:#245c43;transform:translateY(-1px);}
 .home-tabs{display:flex;border-bottom:2px solid var(--border);margin-top:22px;margin-bottom:14px;}
 .home-tab{flex:1;padding:9px;text-align:center;font-size:12px;font-weight:700;color:var(--light);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap;}
@@ -78,19 +80,19 @@ body{font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;backgroun
 .add-form{display:flex;flex-direction:column;gap:11px;}
 .form-group{display:flex;flex-direction:column;gap:4px;}
 .form-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--light);}
-.form-input,.form-textarea,.form-select{font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;padding:10px 12px;border:1.5px solid var(--border);border-radius:10px;background:var(--surface);color:var(--txt);outline:none;transition:border .15s;resize:vertical;}
+.form-input,.form-textarea,.form-select{font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;padding:10px 12px;border:1.5px solid var(--border);border-radius:10px;background:var(--surface);color:var(--txt);outline:none;transition:border .15s;resize:vertical;}
 .form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--accent);}
 .form-textarea{min-height:80px;}
 .form-textarea.tall{min-height:120px;}
-.btn-add{padding:12px;background:var(--accent2);color:#fff;border:none;border-radius:10px;font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .18s;}
+.btn-add{padding:12px;background:var(--accent2);color:#fff;border:none;border-radius:10px;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .18s;}
 .btn-add:hover{background:#c96d2a;transform:translateY(-1px);}
 
 /* category management */
 .cat-manage-row{display:flex;gap:8px;margin-bottom:10px;}
-.cat-manage-input{flex:1;font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;font-size:13px;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;background:var(--surface);color:var(--txt);outline:none;transition:border .15s;}
+.cat-manage-input{flex:1;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:13px;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;background:var(--surface);color:var(--txt);outline:none;transition:border .15s;}
 .cat-manage-input:focus{border-color:var(--accent);}
 .cat-color-pick{width:36px;height:36px;border-radius:8px;border:1.5px solid var(--border);cursor:pointer;padding:2px;}
-.btn-cat-add{padding:9px 14px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .18s;white-space:nowrap;}
+.btn-cat-add{padding:9px 14px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .18s;white-space:nowrap;}
 .btn-cat-add:hover{background:#245c43;}
 .cat-list{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
 .cat-item{display:flex;align-items:center;gap:8px;padding:9px 11px;background:var(--surface);border-radius:9px;border:1.5px solid var(--border);}
@@ -104,7 +106,7 @@ body{font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;backgroun
 /* ── QUIZ ── */
 #quizScreen{min-height:100vh;}
 .quiz-hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 0 8px;}
-.btn-back{padding:7px 13px;border-radius:8px;background:var(--surface);border:1.5px solid var(--border);font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;font-size:13px;color:var(--mid);cursor:pointer;transition:all .15s;}
+.btn-back{padding:7px 13px;border-radius:8px;background:var(--surface);border:1.5px solid var(--border);font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:13px;color:var(--mid);cursor:pointer;transition:all .15s;}
 .btn-back:hover{border-color:var(--mid);color:var(--txt);}
 .quiz-mode-lbl{font-size:13px;font-weight:700;color:var(--mid);}
 .score-row{display:flex;gap:6px;}
@@ -139,14 +141,14 @@ body{font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;backgroun
 .card-cat-tag{position:absolute;top:13px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;padding:2px 9px;border-radius:99px;}
 
 .ans-row{display:flex;gap:10px;margin:10px 0;}
-.ans-btn{flex:1;padding:13px;border-radius:12px;border:none;font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .18s;}
+.ans-btn{flex:1;padding:13px;border-radius:12px;border:none;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .18s;}
 .ans-btn:disabled{opacity:.3;cursor:not-allowed;}
 .ans-w{background:var(--red-bg);color:var(--red);border:2px solid rgba(193,68,14,.2);}
 .ans-w:hover:not(:disabled){background:#f9cfc0;transform:translateY(-1px);}
 .ans-c{background:var(--green-bg);color:var(--green);border:2px solid rgba(45,106,79,.2);}
 .ans-c:hover:not(:disabled){background:#c0ead0;transform:translateY(-1px);}
 .nav-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;}
-.nav-side{padding:8px 13px;border-radius:9px;background:var(--surface);border:1.5px solid var(--border);font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;font-size:13px;color:var(--mid);cursor:pointer;transition:all .15s;white-space:nowrap;}
+.nav-side{padding:8px 13px;border-radius:9px;background:var(--surface);border:1.5px solid var(--border);font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:13px;color:var(--mid);cursor:pointer;transition:all .15s;white-space:nowrap;}
 .nav-side:hover{border-color:var(--accent);color:var(--accent);}
 .nav-side:disabled{opacity:.3;cursor:not-allowed;}
 .dots{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;max-width:300px;}
@@ -166,7 +168,7 @@ body{font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;backgroun
 .rs-num{font-family:'DM Serif Display','Georgia',serif;font-size:28px;}
 .rs-lbl{font-size:11px;color:var(--light);margin-top:3px;}
 .res-btns{display:flex;flex-direction:column;gap:8px;width:100%;max-width:380px;}
-.rbtn{padding:13px;border-radius:12px;font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .18s;border:none;}
+.rbtn{padding:13px;border-radius:12px;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .18s;border:none;}
 .rbtn.primary{background:var(--accent);color:#fff;}
 .rbtn.primary:hover{background:#245c43;}
 .rbtn.secondary{background:var(--red-bg);color:var(--red);border:2px solid rgba(193,68,14,.15);}
@@ -190,11 +192,11 @@ body{font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;backgroun
 .modal-close{width:30px;height:30px;border-radius:8px;background:var(--bg);border:1.5px solid var(--border);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--mid);}
 .modal-close:hover{background:var(--red-bg);color:var(--red);}
 .modal-actions{display:flex;gap:8px;margin-top:4px;}
-.btn-save{flex:1;padding:12px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .18s;}
+.btn-save{flex:1;padding:12px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .18s;}
 .btn-save:hover{background:#245c43;}
-.btn-cancel{padding:12px 16px;background:var(--bg);color:var(--mid);border:1.5px solid var(--border);border-radius:10px;font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;cursor:pointer;transition:all .18s;}
+.btn-cancel{padding:12px 16px;background:var(--bg);color:var(--mid);border:1.5px solid var(--border);border-radius:10px;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;cursor:pointer;transition:all .18s;}
 .btn-cancel:hover{border-color:var(--mid);}
-.hist-tab{flex:1;padding:8px 4px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg);font-size:12px;font-weight:700;cursor:pointer;transition:all .18s;font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;}
+.hist-tab{flex:1;padding:8px 4px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg);font-size:12px;font-weight:700;cursor:pointer;transition:all .18s;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;}
 .hist-tab.active{border-color:var(--accent);background:var(--green-bg);color:var(--accent);}
 </style>
 </head>
@@ -410,7 +412,8 @@ const DEFAULT_CATS = [
   {id:'c2', name:'課税団体',   color:'#1d6fa4'},
   {id:'c3', name:'納税義務者', color:'#7c3aed'},
   {id:'c4', name:'課税標準',   color:'#b45309'},
-  {id:'c5', name:'非課税・免税点', color:'#be185d'},
+  {id:'c5', name:'非課税',     color:'#be185d'},
+  {id:'c56',name:'免税点',     color:'#9333ea'},
   {id:'c6', name:'宅地課税',   color:'#0f766e'},
 ];
 let cats = [
@@ -418,7 +421,8 @@ let cats = [
   {id:'c2', name:'課税団体',   color:'#1d6fa4'},
   {id:'c3', name:'納税義務者', color:'#7c3aed'},
   {id:'c4', name:'課税標準',   color:'#b45309'},
-  {id:'c5', name:'非課税・免税点', color:'#be185d'},
+  {id:'c5', name:'非課税',     color:'#be185d'},
+  {id:'c56',name:'免税点',     color:'#9333ea'},
   {id:'c6', name:'宅地課税',   color:'#0f766e'},
 ];
 
@@ -459,9 +463,9 @@ const DEF = [
   {title:"1-5 非課税 非課税の範囲（2）物的非課税①内容",q:"1-5 非課税 非課税の範囲（2）物的非課税①内容",a:"内 容\n次に掲げる固定資産に対しては、その固定資産の用途又は性格にかんがみ、固定資産税を課することができない。\nイ 国並びに都道府県、市町村、特別区、これらの組合及び財産区が公用又は公共の用に供する固定資産\nロ 宗教法人が専らその本来の用に供する宗教法人法に規定する境内建物及び境内地\nハ 墓 地\nニ 公共の用に供する道路、運河用地及び水道用地\nホ 保安林に係る土地\nヘ その他一定のもの",cat:'c5'},
   {title:"1-5 非課税 物的非課税資産が課税される場合2つ",q:"1-5 非課税 物的非課税資産が課税される場合2つ",a:"イ 有料借り受けの所有者課税（法348②）\n固定資産を有料で借り受けた者がこれを①の固定資産として使用する場合には、当該固定資産の所有者に課することができる。\nロ 目的外使用の課税（法348③）\n市町村は、①の固定資産をその目的以外の目的に使用する場合には、これらの固定資産に対し、固定資産税を課する。",cat:'c5'},
   {title:"1-5 非課税 特定法人が所有し使用している事務所又は倉庫",q:"1-5 非課税 特定法人が所有し使用している事務所又は倉庫",a:"市町村は、農業協同組合、健康保険組合等が所有し、かつ、使用する事務所及び倉庫に対しては、固定資産税を課することができない",cat:'c5'},
-  {title:"1-6 免税点 免税点の趣旨",q:"1-6 免税点 免税点の趣旨",a:"零細な課税客体まですべて課税しようとすることは、徴税事務を煩雑にする割に税収入が少なく徴税の目的をそこなうこととなる。そこで、徴税の合理化を図るために設けられたものである。",cat:'c5'},
-  {title:"1-6 免税点 免税点の額",q:"1-6 免税点 免税点の額",a:"市町村は、同一の者について、当該市町村の区域内においてその者が所有する土地、家屋又は償却資産の課税標準となるべき額が、土地にあっては30万円、家屋にあっては20万円、償却資産にあっては150万円に満たない場合には、固定資産税を課することができない。\nただし、財政上その他特別の必要がある場合には、当該市町村の条例の定めるところによって、その額がそれぞれ30万円、20万円又は150万円に満たないときであっても、固定資産税を課することができる。",cat:'c5'},
-  {title:"1-6 免税点 免税点の判定",q:"1-6 免税点 免税点の判定",a:"⑴ 免税点の判定の基礎となる課税標準となるべき額とは、一の所有者に係る土地、家屋又は償却資産のそれぞれの合計額をいう。\n⑵ 課税標準の特例の適用を受ける固定資産、税負担の調整措置等の適用を受ける土地については、実際の課税標準となるべき額により免税点の判定を行う。\n⑶ 都の特別区及び政令指定都市の区の区域については、その区域内に所在するものごとに免税点の判定を行う。\n⑷ 共有物については、それぞれの共有者が他に固定資産を所有している場合であっても、その共有物を別の人格が所有しているものとして免税点の判定を行う。\n⑸ 市町村には、一所有者の所有する土地又は家屋に関する事項を各所有者ごとにまとめて記載した土地名寄帳及び家屋名寄帳を備えることが義務づけられており、土地又は家屋の免税点の判定はこの帳簿に基づいて行われる。\nまた、償却資産については、所有者から提出された申告書に基づき、各所有者ごとに償却資産課税台帳が作成されるため、免税点の判定は償却資産課税台帳に基づいて行われる。\n⑹ 区分所有家屋については、区分所有家屋全体の課税標準となるべき額によって免税点の判定が行われ、区分所有者ごとに行われるものではない。また、特定共用土地についても同様である。",cat:'c5'},
+  {title:"1-6 免税点 免税点の趣旨",q:"1-6 免税点 免税点の趣旨",a:"零細な課税客体まですべて課税しようとすることは、徴税事務を煩雑にする割に税収入が少なく徴税の目的をそこなうこととなる。そこで、徴税の合理化を図るために設けられたものである。",cat:'c56'},
+  {title:"1-6 免税点 免税点の額",q:"1-6 免税点 免税点の額",a:"市町村は、同一の者について、当該市町村の区域内においてその者が所有する土地、家屋又は償却資産の課税標準となるべき額が、土地にあっては30万円、家屋にあっては20万円、償却資産にあっては150万円に満たない場合には、固定資産税を課することができない。\nただし、財政上その他特別の必要がある場合には、当該市町村の条例の定めるところによって、その額がそれぞれ30万円、20万円又は150万円に満たないときであっても、固定資産税を課することができる。",cat:'c56'},
+  {title:"1-6 免税点 免税点の判定",q:"1-6 免税点 免税点の判定",a:"⑴ 免税点の判定の基礎となる課税標準となるべき額とは、一の所有者に係る土地、家屋又は償却資産のそれぞれの合計額をいう。\n⑵ 課税標準の特例の適用を受ける固定資産、税負担の調整措置等の適用を受ける土地については、実際の課税標準となるべき額により免税点の判定を行う。\n⑶ 都の特別区及び政令指定都市の区の区域については、その区域内に所在するものごとに免税点の判定を行う。\n⑷ 共有物については、それぞれの共有者が他に固定資産を所有している場合であっても、その共有物を別の人格が所有しているものとして免税点の判定を行う。\n⑸ 市町村には、一所有者の所有する土地又は家屋に関する事項を各所有者ごとにまとめて記載した土地名寄帳及び家屋名寄帳を備えることが義務づけられており、土地又は家屋の免税点の判定はこの帳簿に基づいて行われる。\nまた、償却資産については、所有者から提出された申告書に基づき、各所有者ごとに償却資産課税台帳が作成されるため、免税点の判定は償却資産課税台帳に基づいて行われる。\n⑹ 区分所有家屋については、区分所有家屋全体の課税標準となるべき額によって免税点の判定が行われ、区分所有者ごとに行われるものではない。また、特定共用土地についても同様である。",cat:'c56'},
   {title:"8-2（計算規則）宅地の課税 課税標準 原則",q:"8-2（計算規則）宅地の課税 課税標準 原則",a:"⑴ 原 則（法349）\n土地についてはいわゆる価格の据置制度がとられており、基準年度の価格で土地課税台帳等に登録されたものが基準年度から第三年度までの原則的な課税標準となる。\nただし、基準年度の賦課期日後に地目の変換等の事情がある場合又は第二年度以降に新たに固定資産税を課することとなる場合には、比準価格で土地課税台帳等に登録されたものが課税標準となる。",cat:'c6'},
   {title:"8-2（計算規則）宅地の課税 課税標準 特例①令和7・8年度の特例",q:"8-2 宅地の課税 課税標準 特例①令和7年度又は令和8年度における土地の価格の特例",a:"⑵ 特 例\n① 令和7年度又は令和8年度における土地の価格の特例（法附則17の2）\n当該市町村の区域内の自然的及び社会的条件からみて類似の利用価値を有すると認められる地域において地価が下落し、かつ、市町村長が当該土地の修正前の価格を固定資産税の課税標準とすることが固定資産税の課税上著しく均衡を失すると認める場合には、修正価格で土地課税台帳等に登録されたものを、当該年度分の課税標準とする。",cat:'c6'},
   {title:"8-2（計算規則）宅地の課税 課税標準 特例②住宅用地に対する課税標準の特例",q:"8-2 宅地の課税 課税標準 特例②住宅用地に対する課税標準の特例",a:"⑵ 特 例\n② 住宅用地に対する課税標準の特例（法349の3の2）\n宅地のうち住宅用地については、住宅政策上の見地から次のような課税標準の特例が認められている。\n小規模住宅用地…価格の6分の1\n一般住宅用地…価格の3分の1\nなお、住宅用地とは、その全部又は一部を人の居住の用に供する家屋で一定のものの敷地の用に供されている土地（空家等対策の推進に関する特別措置法により所有者等に対し勧告がされた管理不全空家等及び特定空家等の敷地の用に供されている土地を除く。）をいう。",cat:'c6'},
