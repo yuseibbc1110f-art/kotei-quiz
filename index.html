@@ -495,14 +495,6 @@ function init(){
   }
 }
 
-function toggleHist(title){
-  const h = hist[title];
-  if(h === true){ hist[title] = false; }       // 習得済み → 要復習
-  else if(h === false){ delete hist[title]; }   // 要復習 → 未回答
-  else { hist[title] = true; }                  // 未回答 → 習得済み
-  saveToStorage(); updStats(); renderList();
-}
-
 function updStats(){
   document.getElementById('sTot').textContent=allQ.length;
   document.getElementById('sMas').textContent=allQ.filter(q=>hist[q.title]===true).length;
@@ -988,7 +980,7 @@ function parseCSVLine(line){
 
 // ══ GITHUB SYNC ══
 const GH_OWNER = 'yuseibbc1110f-art';
-const GH_REPO  = 'yuseibbc1110f-art.github.io';
+const GH_REPO  = 'kotei-quiz';
 const GH_FILE  = 'data.json';
 const GH_TOKEN_KEY = 'ghToken_v1';
 
@@ -1031,21 +1023,6 @@ function schedulePush(){
   ghSyncTimer = setTimeout(pushToGitHub, 2000);
 }
 
-async function testEncoding(){
-  try {
-    const testData = {test: 'テスト', questions: [{title:'課税客体', q:'問題', a:'答え'}]};
-    const jsonStr = JSON.stringify(testData);
-    const encoder = new TextEncoder();
-    const bytes = encoder.encode(jsonStr);
-    let binary = '';
-    bytes.forEach(b => binary += String.fromCharCode(b));
-    const content = btoa(binary);
-    alert('エンコード成功: ' + content.substring(0,50) + '...');
-  } catch(e) {
-    alert('エンコードエラー: ' + e.message);
-  }
-}
-
 async function pushToGitHub(){
   const token = getGhToken();
   if(!token) return;
@@ -1054,7 +1031,6 @@ async function pushToGitHub(){
 
   const data = { questions: allQ, categories: cats, savedAt: new Date().toISOString() };
   const jsonStr = JSON.stringify(data, null, 2);
-  // Encode UTF-8 to base64 manually (works on all browsers including iOS Safari)
   const content = btoa(encodeURIComponent(jsonStr).replace(/%([0-9A-F]{2})/g,
     (match, p1) => String.fromCharCode(parseInt(p1, 16))));
 
@@ -1064,7 +1040,6 @@ async function pushToGitHub(){
       'Content-Type': 'application/json',
       'Accept': 'application/vnd.github.v3+json'
     };
-    // Always get fresh SHA - add timestamp to bypass Safari cache
     let sha = '';
     const shaUrl = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}?ref=main&_=${Date.now()}`;
     const getRes = await fetch(shaUrl, { headers });
@@ -1072,15 +1047,11 @@ async function pushToGitHub(){
       const d = await getRes.json();
       sha = d.sha || '';
     }
-    // 404 = file doesn't exist yet (first push), sha stays empty
-
-    // Push file
     const body = { message: 'sync data', content };
     if(sha) body.sha = sha;
     const putRes = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`, {
       method: 'PUT', headers, body: JSON.stringify(body)
     });
-
     if(putRes.ok){
       if(status){ status.textContent = '✅ 同期完了 ' + new Date().toLocaleTimeString('ja-JP'); status.style.color = 'var(--green)'; }
     } else {
@@ -1089,8 +1060,7 @@ async function pushToGitHub(){
     }
   } catch(e){
     console.error('GitHub sync error:', e);
-    const msg = e.message + (e.stack ? ' | ' + e.stack.split('\n')[1] : '');
-    if(status){ status.textContent = '❌ 同期失敗: ' + msg; status.style.color = 'var(--red)'; }
+    if(status){ status.textContent = '❌ 同期失敗: ' + e.message; status.style.color = 'var(--red)'; }
   }
 }
 
@@ -1102,7 +1072,6 @@ async function loadFromGitHub(){
     const res = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`, { headers, mode: 'cors' });
     if(!res.ok) return false;
     const d = await res.json();
-    // Safe decode for Unicode/Japanese text
     const base64 = d.content.replace(/\s/g, '');
     const binary = atob(base64);
     const bytes = new Uint8Array(binary.length);
