@@ -1029,7 +1029,7 @@ async function pushToGitHub(){
   const status = document.getElementById('ghStatus');
   if(status){ status.textContent = '⏳ 同期中...'; status.style.color = 'var(--mid)'; }
 
-  const data = { questions: allQ, categories: cats, savedAt: new Date().toISOString() };
+  const data = { questions: allQ, categories: cats, history: hist, savedAt: new Date().toISOString() };
   const jsonStr = JSON.stringify(data, null, 2);
   const content = btoa(encodeURIComponent(jsonStr).replace(/%([0-9A-F]{2})/g,
     (match, p1) => String.fromCharCode(parseInt(p1, 16))));
@@ -1080,6 +1080,7 @@ async function loadFromGitHub(){
     const data = JSON.parse(text);
     if(data.questions) allQ = data.questions;
     if(data.categories) cats = data.categories;
+    if(data.history) hist = data.history;
     console.log('Loaded from GitHub:', allQ.length, 'questions');
     return true;
   } catch(e){
