@@ -2,7 +2,7 @@
   "name": "固定資産税 暗記アプリ",
   "short_name": "固定資産税",
   "description": "固定資産税理論テキスト暗記アプリ",
-  "start_url": "/",
+  "start_url": "/kotei-quiz/",
   "display": "standalone",
   "background_color": "#f5f3ee",
   "theme_color": "#2d6a4f",
@@ -21,5 +21,5 @@
       "purpose": "any maskable"
     }
   ],
-  "scope": "/"
+  "scope": "/kotei-quiz/"
 }
