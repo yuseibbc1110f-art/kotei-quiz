@@ -16,37 +16,53 @@
 <style>
 /* Fonts loaded from Google Fonts when online, fallback to system fonts offline */
 :root{
-  --bg:#f0f4ff;--surface:#ffffff;--border:#c0d0f5;
-  --accent:#1a6fd8;--accent2:#f5a623;
-  --green:#0099cc;--green-bg:#d0eefa;
-  --red:#e03060;--red-bg:#fde0ea;
-  --txt:#1a1a2e;--mid:#4a5270;--light:#8895b8;
+  --bg:#daeeff;--surface:#ffffff;--border:#7ab8f5;
+  --accent:#0055c8;--accent2:#f5c400;
+  --green:#00a96c;--green-bg:#c5f5e2;
+  --red:#e52048;--red-bg:#ffdde9;
+  --txt:#00173d;--mid:#1a4d99;--light:#5588cc;
 }
+@keyframes sparkle{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.15)}}
+@keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;align-items:center;}
+body{font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;background:linear-gradient(160deg,#b8dbff 0%,#daeeff 45%,#eef6ff 100%);background-attachment:fixed;color:var(--txt);min-height:100vh;display:flex;flex-direction:column;align-items:center;}
 .screen{display:none;width:100%;max-width:700px;padding:20px 16px;}
 .screen.active{display:flex;flex-direction:column;}
 
 /* ── HOME ── */
 #homeScreen{min-height:100vh;}
-.home-header{padding:28px 0 16px;}
-.home-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px;}
-.home-title{font-family:'DM Serif Display','Georgia',serif;font-size:clamp(22px,6vw,32px);line-height:1.2;}
-.home-title span{color:var(--accent);}
-.home-sub{margin-top:6px;font-size:13px;color:var(--mid);}
-.stat-bar{display:flex;gap:12px;padding:12px 0;border-top:1.5px solid var(--border);border-bottom:1.5px solid var(--border);margin:14px 0;}
+.home-header{
+  background:linear-gradient(135deg,#001050 0%,#0055c8 55%,#00aaff 100%);
+  border-radius:20px;padding:26px 20px 20px;margin-bottom:0;
+  position:relative;overflow:hidden;
+  box-shadow:0 6px 28px rgba(0,50,180,.28);
+}
+.home-header::before{
+  content:'✦ ✧ ✦ ✧ ✦ ✧';position:absolute;
+  top:10px;right:12px;font-size:10px;
+  color:rgba(245,196,0,.7);letter-spacing:4px;
+  pointer-events:none;animation:sparkle 3s ease-in-out infinite;
+}
+.home-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:700;margin-bottom:6px;}
+.home-title{font-family:'DM Serif Display','Georgia',serif;font-size:clamp(22px,6vw,32px);line-height:1.2;color:#fff;}
+.home-title span{color:#f7d050;text-shadow:0 0 16px rgba(245,196,0,.55);}
+.home-sub{margin-top:6px;font-size:13px;color:rgba(255,255,255,.68);}
+.sync-badge{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;font-weight:700;color:rgba(255,255,255,.6);background:rgba(255,255,255,.12);border-radius:99px;padding:4px 10px;}
+.sync-badge.ok{color:#6effc0;background:rgba(0,180,100,.2);}
+.sync-badge.err{color:#ff8888;background:rgba(255,50,50,.15);}
+.stat-bar{display:flex;gap:12px;padding:14px;background:var(--surface);border-radius:14px;border:1.5px solid var(--border);margin:14px 0;box-shadow:0 2px 12px rgba(0,80,200,.1);}
 .stat-item{flex:1;text-align:center;}
-.stat-num{font-family:'DM Serif Display','Georgia',serif;font-size:24px;line-height:1;}
+.stat-num{font-family:'DM Serif Display','Georgia',serif;font-size:24px;line-height:1;color:var(--accent);}
 .stat-lbl{font-size:10px;color:var(--light);margin-top:3px;letter-spacing:1px;}
 .sec-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--light);margin-bottom:10px;}
 .mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
 .mode-btn{padding:13px 11px;border-radius:12px;border:2px solid var(--border);background:var(--surface);cursor:pointer;transition:all .18s;text-align:left;}
-.mode-btn:hover,.mode-btn.selected{border-color:var(--accent);background:#f0faf4;}
+.mode-btn:hover,.mode-btn.selected{border-color:var(--accent);background:linear-gradient(135deg,#e4f0ff,#f0f7ff);}
 .mode-count{font-family:'DM Serif Display','Georgia',serif;font-size:22px;color:var(--accent);line-height:1;}
 .mode-label{font-size:12px;color:var(--mid);margin-top:3px;font-weight:700;}
 .mode-all{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:11px 14px;}
-.btn-start{width:100%;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:12px;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:16px;font-weight:700;cursor:pointer;transition:all .18s;margin-top:6px;letter-spacing:1px;}
-.btn-start:hover{background:#245c43;transform:translateY(-1px);}
+.btn-start{width:100%;padding:14px;background:linear-gradient(135deg,#0040a0 0%,#0066dd 50%,#0099ff 100%);color:#fff;border:none;border-radius:12px;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:16px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:6px;letter-spacing:1px;box-shadow:0 4px 18px rgba(0,90,220,.35);}
+.btn-start:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(0,90,220,.45);}
 .home-tabs{display:flex;border-bottom:2px solid var(--border);margin-top:22px;margin-bottom:14px;}
 .home-tab{flex:1;padding:9px;text-align:center;font-size:12px;font-weight:700;color:var(--light);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap;}
 .home-tab.active{color:var(--accent);border-color:var(--accent);}
@@ -84,8 +100,8 @@ body{font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans',
 .form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--accent);}
 .form-textarea{min-height:80px;}
 .form-textarea.tall{min-height:120px;}
-.btn-add{padding:12px;background:var(--accent2);color:#fff;border:none;border-radius:10px;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .18s;}
-.btn-add:hover{background:#c96d2a;transform:translateY(-1px);}
+.btn-add{padding:12px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .18s;box-shadow:0 2px 10px rgba(0,80,200,.2);}
+.btn-add:hover{background:#0044aa;transform:translateY(-1px);}
 
 /* category management */
 .cat-manage-row{display:flex;gap:8px;margin-bottom:10px;}
@@ -93,7 +109,7 @@ body{font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans',
 .cat-manage-input:focus{border-color:var(--accent);}
 .cat-color-pick{width:36px;height:36px;border-radius:8px;border:1.5px solid var(--border);cursor:pointer;padding:2px;}
 .btn-cat-add{padding:9px 14px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .18s;white-space:nowrap;}
-.btn-cat-add:hover{background:#245c43;}
+.btn-cat-add:hover{background:#0044aa;}
 .cat-list{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
 .cat-item{display:flex;align-items:center;gap:8px;padding:9px 11px;background:var(--surface);border-radius:9px;border:1.5px solid var(--border);}
 .cat-item-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
@@ -116,7 +132,7 @@ body{font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans',
 .prog-wrap{margin:2px 0 8px;}
 .prog-info{display:flex;justify-content:space-between;font-size:12px;color:var(--light);margin-bottom:4px;}
 .prog-bar{height:5px;background:var(--border);border-radius:99px;overflow:hidden;}
-.prog-fill{height:100%;background:linear-gradient(90deg,var(--accent),#52b788);border-radius:99px;transition:width .4s ease;}
+.prog-fill{height:100%;background:linear-gradient(90deg,#0040a0,#0099ff);border-radius:99px;transition:width .4s ease;}
 
 /* CARD — question side: light cream */
 .card-wrap{perspective:1400px;margin:6px 0;}
@@ -193,22 +209,23 @@ body{font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans',
 .modal-close:hover{background:var(--red-bg);color:var(--red);}
 .modal-actions{display:flex;gap:8px;margin-top:4px;}
 .btn-save{flex:1;padding:12px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .18s;}
-.btn-save:hover{background:#245c43;}
+.btn-save:hover{background:#0044aa;}
 .btn-cancel{padding:12px 16px;background:var(--bg);color:var(--mid);border:1.5px solid var(--border);border-radius:10px;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;cursor:pointer;transition:all .18s;}
 .btn-cancel:hover{border-color:var(--mid);}
 .hist-tab{flex:1;padding:8px 4px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg);font-size:12px;font-weight:700;cursor:pointer;transition:all .18s;font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans','Yu Gothic',sans-serif;}
-.hist-tab.active{border-color:var(--accent);background:var(--green-bg);color:var(--accent);}
+.hist-tab.active{border-color:var(--accent);background:#ddeeff;color:var(--accent);}
 </style>
 </head>
 <body>
 
 <!-- ═══ HOME ═══ -->
-<div id="saveInd" style="position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#2d6a4f;color:#fff;padding:8px 18px;border-radius:99px;font-size:13px;font-weight:700;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none;">💾 保存しました</div>
+<div id="saveInd" style="position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#0055c8,#00aaff);color:#fff;padding:8px 18px;border-radius:99px;font-size:13px;font-weight:700;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none;box-shadow:0 4px 14px rgba(0,80,200,.35);">💾 保存しました</div>
 <div class="screen active" id="homeScreen">
   <div class="home-header">
     <div class="home-label">📚 暗記アプリ</div>
     <h1 class="home-title">固定資産税<br><span>理論テキスト</span></h1>
     <p class="home-sub">問題をランダムに出題して暗記を強化しよう</p>
+    <div id="syncBadge" class="sync-badge">☁️ 未連携</div>
   </div>
 
   <div class="stat-bar">
@@ -243,7 +260,7 @@ body{font-family:'M PLUS Rounded 1c','Hiragino Maru Gothic Pro','Hiragino Sans',
     <div class="home-tab active"  onclick="switchTab('List',this)">問題一覧</div>
     <div class="home-tab" onclick="switchTab('Add',this)">＋ 問題追加</div>
     <div class="home-tab" onclick="switchTab('Cat',this)">🏷 カテゴリ</div>
-    <div class="home-tab" onclick="switchTab('Export',this)">⬇ データ</div>
+    <div class="home-tab" onclick="switchTab('Export',this)">☁️ 同期</div>
   </div>
 
   <!-- LIST TAB -->
@@ -1005,6 +1022,13 @@ function clearGhToken(){
   updateGhUI();
 }
 
+function setSyncBadge(text, cls){
+  const b = document.getElementById('syncBadge');
+  if(!b) return;
+  b.textContent = text;
+  b.className = 'sync-badge' + (cls ? ' ' + cls : '');
+}
+
 function updateGhUI(){
   const t = getGhToken();
   const status = document.getElementById('ghStatus');
@@ -1013,10 +1037,12 @@ function updateGhUI(){
     status.textContent = '✅ トークン設定済み・自動同期オン';
     status.style.color = 'var(--green)';
     if(syncBtn) syncBtn.style.display = 'block';
+    setSyncBadge('☁️ 連携済み', 'ok');
   } else {
     status.textContent = '⚪ 未設定（ローカルのみ保存）';
     status.style.color = 'var(--light)';
     if(syncBtn) syncBtn.style.display = 'none';
+    setSyncBadge('☁️ 未連携');
   }
 }
 
@@ -1032,6 +1058,7 @@ async function pushToGitHub(){
   if(!token) return;
   const status = document.getElementById('ghStatus');
   if(status){ status.textContent = '⏳ 同期中...'; status.style.color = 'var(--mid)'; }
+  setSyncBadge('⏳ 同期中...');
 
   const data = { questions: allQ, categories: cats, history: hist, savedAt: new Date().toISOString() };
   const jsonStr = JSON.stringify(data, null, 2);
@@ -1057,7 +1084,9 @@ async function pushToGitHub(){
       method: 'PUT', headers, body: JSON.stringify(body)
     });
     if(putRes.ok){
-      if(status){ status.textContent = '✅ 同期完了 ' + new Date().toLocaleTimeString('ja-JP'); status.style.color = 'var(--green)'; }
+      const t = new Date().toLocaleTimeString('ja-JP');
+      if(status){ status.textContent = '✅ 同期完了 ' + t; status.style.color = 'var(--green)'; }
+      setSyncBadge('✅ ' + t, 'ok');
     } else {
       const err = await putRes.json();
       throw new Error(err.message);
@@ -1065,6 +1094,7 @@ async function pushToGitHub(){
   } catch(e){
     console.error('GitHub sync error:', e);
     if(status){ status.textContent = '❌ 同期失敗: ' + e.message; status.style.color = 'var(--red)'; }
+    setSyncBadge('❌ 同期失敗', 'err');
   }
 }
 
